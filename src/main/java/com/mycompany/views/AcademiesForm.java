@@ -6,10 +6,6 @@ package com.mycompany.views;
 
 import com.mycompany.dao.DaoClient;
 import com.mycompany.models.Academy;
-import com.mycompany.models.Client;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -98,7 +94,7 @@ public class AcademiesForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private final List<Client> clients = new ArrayList<>();
+
     private void btnSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSave1ActionPerformed
         // TODO add your handling code here:
         DaoClient client = new DaoClient();
