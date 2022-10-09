@@ -7,22 +7,19 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class AcademiesList extends javax.swing.JFrame {
-    
-    /**
-     * Creates new form AcademiesList
-     */
+        
+    /*
+        This needs refactoring there are so much repetitive code to get rid of 
+    */
     public AcademiesList() {
         initComponents();
 
-        //academiesTable.getSe
         DaoClient client = new DaoClient();
         
         ResultSet rs = client.getAcademies();
         
         String[] columns = {"ID", "Name", "Phone", "Web"};
-        String [][] data = {
-                    {"Hola", "Todo", "Bien" , "?"}
-          };
+        String [][] data = {};
           DefaultTableModel tableModel = new DefaultTableModel(data, columns);
           academiesTable.setModel(tableModel);
           
@@ -55,6 +52,7 @@ public class AcademiesList extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         createAcademyBtn = new javax.swing.JButton();
         deleteAcademyBtn = new javax.swing.JButton();
+        editAcademyBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +110,15 @@ public class AcademiesList extends javax.swing.JFrame {
         deleteAcademyBtn.setForeground(new java.awt.Color(255, 255, 255));
         deleteAcademyBtn.setText("Delete");
 
+        editAcademyBtn.setBackground(new java.awt.Color(102, 102, 255));
+        editAcademyBtn.setForeground(new java.awt.Color(255, 255, 255));
+        editAcademyBtn.setText("Edit");
+        editAcademyBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editAcademyBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,6 +132,8 @@ public class AcademiesList extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(createAcademyBtn)
                 .addGap(9, 9, 9)
+                .addComponent(editAcademyBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(deleteAcademyBtn)
                 .addContainerGap())
         );
@@ -138,7 +147,8 @@ public class AcademiesList extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(createAcademyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteAcademyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteAcademyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editAcademyBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -148,6 +158,10 @@ public class AcademiesList extends javax.swing.JFrame {
     private void createAcademyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createAcademyBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_createAcademyBtnActionPerformed
+
+    private void editAcademyBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editAcademyBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editAcademyBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,6 +181,7 @@ public class AcademiesList extends javax.swing.JFrame {
     private javax.swing.JTable academiesTable;
     private javax.swing.JButton createAcademyBtn;
     private javax.swing.JButton deleteAcademyBtn;
+    private javax.swing.JButton editAcademyBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
